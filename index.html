@@ -207,7 +207,22 @@
         .product-image-container img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
         .product-card h3 { padding: 1.8rem 1.8rem 0.6rem; font-size: 1.4rem; font-weight: 600; color: var(--primary); letter-spacing: -0.3px; }
         .product-desc { font-size: 0.98rem; color: #4b5563; padding: 0 1.8rem 2.2rem; flex-grow: 1; line-height: 1.6; }
-        
+        /* --- GRILLE DE PRODUITS MOBILE (2 PAR LIGNE) --- */
+@media (max-width: 768px) {
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Force 2 colonnes égales */
+    gap: 15px; /* Espace entre les produits */
+    padding: 10px;
+  }
+  
+  /* Ajustement optionnel des images pour qu'elles restent proportionnelles */
+  .product-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
         .btn-card {
             display: block;
             text-align: center;
