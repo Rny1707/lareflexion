@@ -47,33 +47,62 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-       .logo {
-    font-weight: 700;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-}
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+        }
 
-/* Nouveau style pour contrôler la taille de ton logo */
-.logo-img {
-    height: 50px; /* Aligne la hauteur sur celle de ton menu */
-    width: auto;  /* Garde les proportions de ton logo sans le déformer */
-    display: block;
-}
-        /* Couleur Verte pour LaRéflexion727 */
+        .logo-img {
+            height: 50px; 
+            width: auto;  
+            display: block;
+        }
+
         .vert-logo { color: var(--secondary); }
-
-        /* Couleur Jaune pour M.C */
         .jaune-logo { color: var(--primary); }
 
         nav ul { display: flex; gap: 20px; }
         nav ul a:hover { color: var(--secondary); font-weight: 600; }
 
+        /* Bouton Menu Hamburger (Caché sur ordinateur) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+            z-index: 1100;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: var(--dark);
+            border-radius: 2px;
+            transition: 0.3s ease;
+        }
+
+        /* Animation du hamburger en "X" quand il est ouvert */
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
         /* --- HERO SECTION --- */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url(larefelexion.jpeg);
+                        url(Larefelexion.jpg.jpeg);
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -132,7 +161,7 @@
             text-align: center;
             transition: 0.3s;
             border: 1px solid #eee;
-            border-bottom: 4px solid var(--secondary); /* Bordure verte en bas */
+            border-bottom: 4px solid var(--secondary); 
             display: flex;
             flex-direction: column;
         }
@@ -142,23 +171,22 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        /* --- NOUVEAU STYLE POUR LES IMAGES --- */
         .product-image-container {
             width: 100%;
-            height: 200px; /* Hauteur fixe pour l'image */
-            overflow: hidden; /* Coupe ce qui dépasse */
-            background-color: var(--light); /* Fond gris si l'image ne charge pas */
+            height: 200px; 
+            overflow: hidden; 
+            background-color: var(--light); 
         }
 
         .product-image-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* L'image remplit la zone sans se déformer */
+            object-fit: cover; 
             transition: transform 0.3s ease;
         }
 
         .product-card:hover .product-image-container img {
-            transform: scale(1.1); /* Petit zoom au survol */
+            transform: scale(1.1); 
         }
 
         .product-card h3 { 
@@ -171,21 +199,21 @@
             font-size: 0.9rem;
             color: #666;
             padding: 0 1rem 1.5rem;
-            flex-grow: 1; /* Pousse le contenu vers le bas */
+            flex-grow: 1; 
         }
 
         /* --- WHY US --- */
         .feature-svg {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
-}
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
 
-/* Petit effet sympa : l'icône bouge légèrement quand le client passe sa souris dessus */
-.feature-item:hover .feature-svg {
-    transform: scale(1.1);
-}
+        .feature-item:hover .feature-svg {
+            transform: scale(1.1);
+        }
+        
         .features {
             background: var(--secondary);
             color: var(--white);
@@ -257,9 +285,41 @@
         }
         .wa-float:hover { transform: rotate(360deg) scale(1.1); }
 
-        /* --- RESPONSIVE --- */
+        /* --- RESPONSIVE MOBILE (CORRIGÉ) --- */
         @media (max-width: 768px) {
-            nav { display: none; } 
+            .menu-toggle {
+                display: flex; /* On affiche le bouton ☰ sur mobile */
+            }
+
+            nav {
+                display: block; /* On remet le nav actif */
+                position: fixed;
+                top: 0;
+                right: -100%; /* Caché à droite par défaut */
+                width: 70%;
+                height: 100vh;
+                background: var(--white);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                padding: 80px 40px;
+                transition: 0.4s ease;
+                z-index: 1000;
+            }
+
+            /* Quand on clique, le menu glisse vers la gauche */
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column; /* Liens alignés verticalement */
+                gap: 30px;
+            }
+
+            nav ul a {
+                font-size: 1.2rem;
+                display: block;
+            }
+
             .hero h1 { font-size: 1.8rem; }
             .products-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
         }
@@ -270,27 +330,17 @@
     function sendWhatsApp() {
         const phoneOwner = "50937778050";
         
-        // Infos client
         const clientName = document.getElementById('client_name').value;
         const clientPhone = document.getElementById('client_phone').value;
-
-        // Ciment
         const typeCiment = document.getElementById('type_ciment').value;
         const qtyCiment = document.getElementById('qty_ciment').value || 0;
-        
-        // Fer
         const dimFer = document.getElementById('dim_fer').value;
         const qtyFer = document.getElementById('qty_fer').value || 0;
-
-        // Tôles
         const typeToles = document.getElementById('type_toles').value;
         const qtyToles = document.getElementById('qty_toles').value || 0;
-
-        // Plywood
         const dimPlywood = document.getElementById('dim_plywood').value;
         const qtyPlywood = document.getElementById('qty_plywood').value || 0;
 
-        // Vérification des champs obligatoires
         if (!clientName || !clientPhone) {
             alert("Veuillez entrer votre nom et votre numéro de téléphone.");
             return;
@@ -301,7 +351,6 @@
             return;
         }
 
-        // Construction du message professionnel
         let message = "NOUVELLE DEMANDE DE DEVIS%0A";
         message += "--------------------------%0A";
         message += "👤 Client : " + clientName + "%0A";
@@ -318,22 +367,41 @@
         const url = "https://wa.me/" + phoneOwner + "?text=" + message;
         window.open(url, '_blank').focus();
     }
+
+    // Fonction pour ouvrir et fermer le menu mobile
+    function toggleMenu() {
+        document.getElementById('navbar').classList.toggle('active');
+        document.getElementById('menuBtn').classList.toggle('active');
+    }
+
+    // Ferme le menu automatiquement quand le client clique sur un lien
+    function closeMenu() {
+        document.getElementById('navbar').classList.remove('active');
+        document.getElementById('menuBtn').classList.remove('active');
+    }
 </script>
 
 <body>
 
     <header>
         <div class="logo">
-    <a href="#">
-        <img src="logo_la_Reflexion-removebg-preview.png" alt="Logo LaRéflexion727 M.C" class="logo-img">
-    </a>
-</div>
-        <nav>
+            <a href="#">
+                <img src="logo_la_Reflexion-removebg-preview.png" alt="Logo LaRéflexion727 M.C" class="logo-img">
+            </a>
+        </div>
+
+        <button class="menu-toggle" id="menuBtn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="navbar">
             <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#produits">Produits</a></li>
-                <li><a href="#a-propos">Pourquoi nous</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" onclick="closeMenu()">Accueil</a></li>
+                <li><a href="#produits" onclick="closeMenu()">Produits</a></li>
+                <li><a href="#a-propos" onclick="closeMenu()">Pourquoi nous</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -351,7 +419,6 @@
         </p>
 
         <div class="products-grid">
-            
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="ciment cina varreux.png" alt="Sacs de ciment stockés à LaRéflexion727 M.C">
@@ -379,7 +446,6 @@
                 <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20du%20ciment%20aujourd'hui." style="background-color: var(--secondary); color: white; padding: 10px; font-weight: bold; margin: 0 1rem 1rem;">Prix du jour</a>
             </div>
 
-
             <div class="product-card">
                 <div class="product-image-container">
                     <img src="toles.png" alt="Tôles galvanisées et Aluzinc">
@@ -406,48 +472,45 @@
                 <p class="product-desc"> Différentes longueurs pour votre construction.</p>
                 <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20des%20tôles." style="background-color: var(--secondary); color: white; padding: 10px; font-weight: bold; margin: 0 1rem 1rem;">Prix du jour</a>
             </div>
-            </div>
+        </div>
     </section>
 
     <section class="features" id="a-propos">
-    <div class="feature-item">
-        <!-- Icône de Livraison : Camion en mouvement -->
-        <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="#fbc02d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="1" y="3" width="15" height="13"></rect>
-            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-            <circle cx="5.5" cy="18.5" r="2.5"></circle>
-            <circle cx="18.5" cy="18.5" r="2.5"></circle>
-            <line x1="3" y1="6" x2="9" y2="6"></line>
-            <line x1="3" y1="10" x2="12" y2="10"></line>
-        </svg>
-        <h3>Livraison Rapide</h3>
-        <p>Nous livrons sécuritairement vos matériaux sur votre chantier à Petit-Goâve et environs.</p>
-    </div>
-    
-    <div class="feature-item">
-        <!-- Icône de Qualité : Écusson/Badge de certification avec un check -->
-        <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="#fbc02d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            <polyline points="9 11 11 13 15 9"></polyline>
-        </svg>
-        <h3>Qualité Supérieure</h3>
-        <p>Des produits certifiés et robustes pour une construction durable en Haïti.</p>
-    </div>
-    
-    <div class="feature-item">
-        <!-- Icône de Disponibilité : Entrepôt/Bâtiment de stockage solide -->
-        <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="#fbc02d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 21h18"></path>
-            <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1H3"></path>
-            <path d="M5 21V10.85"></path>
-            <path d="M19 21V10.85"></path>
-            <path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"></path>
-            <path d="M21 7L12 3 3 7"></path>
-        </svg>
-        <h3>Disponibilité</h3>
-        <p>Un stock constant pour éviter les retards sur vos chantiers.</p>
-    </div>
-</section>
+        <div class="feature-item">
+            <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="#fbc02d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                <line x1="3" y1="6" x2="9" y2="6"></line>
+                <line x1="3" y1="10" x2="12" y2="10"></line>
+            </svg>
+            <h3>Livraison Rapide</h3>
+            <p>Nous livrons sécuritairement vos matériaux sur votre chantier à Petit-Goâve et environs.</p>
+        </div>
+        
+        <div class="feature-item">
+            <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="#fbc02d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <polyline points="9 11 11 13 15 9"></polyline>
+            </svg>
+            <h3>Qualité Supérieure</h3>
+            <p>Des produits certifiés et robustes pour une construction durable en Haïti.</p>
+        </div>
+        
+        <div class="feature-item">
+            <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="#fbc02d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18"></path>
+                <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1H3"></path>
+                <path d="M5 21V10.85"></path>
+                <path d="M19 21V10.85"></path>
+                <path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"></path>
+                <path d="M21 7L12 3 3 7"></path>
+            </svg>
+            <h3>Disponibilité</h3>
+            <p>Un stock constant pour éviter les retards sur vos chantiers.</p>
+        </div>
+    </section>
 
     <section class="contact" id="contact">
         <h2 class="section-title">Passez Votre Commande</h2>
@@ -465,7 +528,6 @@
         
         <div class="contact-box" style="max-width: 600px; margin: auto; text-align: left;">
             <form id="quoteForm">
-                
                 <div style="display: flex; gap: 10px; margin-bottom: 20px;">
                     <div style="flex: 1;">
                         <label>👤 Nom Complet du client :</label>
