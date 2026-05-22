@@ -33,7 +33,7 @@
             --white: #ffffff;
             --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.03);
             --shadow-md: 0 16px 40px rgba(18, 53, 20, 0.08);
-            --transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            --transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -52,7 +52,7 @@
 
         a { text-decoration: none; color: inherit; transition: var(--transition); }
 
-        /* --- TOP BAR (PETITE TÊTE PROMO) --- */
+        /* --- TOP BAR --- */
         .top-bar {
             background-color: var(--primary-dark);
             color: var(--accent);
@@ -77,22 +77,15 @@
             justify-content: space-between;
             align-items: center;
             position: sticky;
-            top: 35px; /* S'aligne juste sous la top-bar */
+            top: 35px;
             z-index: 1000;
             box-shadow: 0 4px 30px rgba(0,0,0,0.02);
             border-bottom: 1px solid rgba(18, 53, 20, 0.06);
             transition: var(--transition);
         }
 
-        /* Zone Logo et son fond */
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-        .logo-img { height: 58px; width: auto; display: block; transition: var(--transition); }
-        .logo-img:hover { transform: scale(1.03); }
+        .logo { display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .logo-img { height: 58px; width: auto; display: block; }
         
         nav ul { display: flex; gap: 40px; list-style: none; }
         nav ul a { font-weight: 500; font-size: 0.95rem; color: #4b5563; position: relative; padding: 5px 0; }
@@ -100,19 +93,13 @@
         nav ul a:hover { color: var(--primary); }
         nav ul a:hover::after { width: 100%; }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
+        .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; background: none; border: none; }
         .menu-toggle span { display: block; width: 26px; height: 2px; background-color: var(--dark); transition: var(--transition); }
 
-        /* --- HERO SPLIT & SHADOW --- */
+        /* --- HERO BANNER (NOUVELLE IMAGE DE NUIT) --- */
         .hero {
-            background: linear-gradient(rgba(9, 29, 10, 0.75), rgba(9, 29, 10, 0.6)), url(la reflexion 727 Petit-Goave Haiti.jpeg);
+            /* Overlay légèrement plus sombre (0.8/0.7) pour compenser la clarté des lumières de nuit et garantir la lisibilité */
+            background: linear-gradient(rgba(9, 29, 10, 0.8), rgba(9, 29, 10, 0.7)), url(banner-depot-nuit.jpg);
             background-size: cover;
             background-position: center;
             height: 85vh;
@@ -132,10 +119,10 @@
             line-height: 1.2; 
             margin-bottom: 1.5rem;
             letter-spacing: -1px;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            text-shadow: 0 4px 12px rgba(0,0,0,0.4); /* Ombre portée renforcée pour le texte */
         }
         .hero h1 span { color: var(--accent); }
-        .hero p { font-size: 1.3rem; font-weight: 300; max-width: 750px; margin-bottom: 3.5rem; opacity: 0.95; text-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .hero p { font-size: 1.3rem; font-weight: 300; max-width: 750px; margin-bottom: 3.5rem; opacity: 0.95; text-shadow: 0 2px 8px rgba(0,0,0,0.3); }
 
         .btn-universal {
             background: var(--accent);
@@ -151,24 +138,9 @@
         }
         .btn-universal:hover { background: transparent; color: var(--white); border-color: var(--white); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255,255,255,0.15); }
 
-        /* --- STYLING TITRES DE SECTIONS --- */
-        .section-header {
-            text-align: center;
-            margin: 7rem auto 4.5rem;
-            max-width: 750px;
-            padding: 0 20px;
-        }
-        .section-header .badge {
-            color: var(--accent);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
+        /* --- TITRES DE SECTIONS --- */
+        .section-header { text-align: center; margin: 7rem auto 4.5rem; max-width: 750px; padding: 0 20px; }
+        .section-header .badge { color: var(--accent); text-transform: uppercase; font-size: 0.8rem; font-weight: 700; letter-spacing: 2.5px; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; }
         .section-header .badge::before, .section-header .badge::after { content: '■'; font-size: 6px; color: var(--accent); }
         .section-header h2 { font-size: 2.5rem; font-weight: 700; color: var(--primary); letter-spacing: -0.5px; line-height: 1.3; }
         .section-header p { color: #6b7280; margin-top: 12px; font-size: 1.1rem; font-weight: 400; }
@@ -188,7 +160,7 @@
         .stat-item h3 { font-size: 3.2rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 8px; }
         .stat-item p { font-size: 0.9rem; color: #f3f4f6; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
 
-        /* --- ABOUT --- */
+        /* --- ABOUT (NOUVELLE IMAGE DE JOUR) --- */
         .about-section { background-color: var(--bg-cream); padding: 1rem 0 7rem; border-bottom: 1px solid rgba(0,0,0,0.03); }
         .about-container {
             display: flex;
@@ -224,47 +196,16 @@
             transition: var(--transition);
         }
         .step-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); border-top-color: var(--accent); }
-        .step-number {
-            font-size: 4rem;
-            font-weight: 800;
-            color: rgba(18, 53, 20, 0.06);
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            user-select: none;
-        }
+        .step-number { font-size: 4rem; font-weight: 800; color: rgba(18, 53, 20, 0.06); position: absolute; top: 15px; right: 25px; user-select: none; }
         .step-card h4 { font-size: 1.25rem; color: var(--primary); margin-bottom: 12px; font-weight: 600; }
         .step-card p { font-size: 0.98rem; color: #52525b; }
 
         /* --- CATALOGUE PRODUITS --- */
         .products-section { background-color: var(--bg-light); padding-bottom: 8rem; border-top: 1px solid rgba(0,0,0,0.02); }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 40px;
-            padding: 0 5%;
-            max-width: 1250px;
-            margin: 0 auto;
-        }
-        .product-card {
-            background: var(--white);
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(0,0,0,0.04);
-            transition: var(--transition);
-        }
-        .product-card:hover { 
-            transform: translateY(-10px) scale(1.01); 
-            box-shadow: 0 20px 40px rgba(9, 29, 10, 0.12);
-            border-color: rgba(202, 138, 4, 0.3);
-        }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; padding: 0 5%; max-width: 1250px; margin: 0 auto; }
+        .product-card { background: var(--white); border-radius: 4px; overflow: hidden; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; border: 1px solid rgba(0,0,0,0.04); transition: var(--transition); }
         .product-image-container { width: 100%; height: 260px; overflow: hidden; background: #e5e7eb; }
         .product-image-container img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
-        .product-card:hover .product-image-container img { transform: scale(1.08); }
-        
         .product-card h3 { padding: 1.8rem 1.8rem 0.6rem; font-size: 1.4rem; font-weight: 600; color: var(--primary); letter-spacing: -0.3px; }
         .product-desc { font-size: 0.98rem; color: #4b5563; padding: 0 1.8rem 2.2rem; flex-grow: 1; line-height: 1.6; }
         
@@ -282,6 +223,8 @@
             text-transform: uppercase;
             border: 1px solid var(--primary);
         }
+        .product-card:hover { transform: translateY(-10px) scale(1.01); box-shadow: 0 20px 40px rgba(9, 29, 10, 0.12); border-color: rgba(202, 138, 4, 0.3); }
+        .product-card:hover .product-image-container img { transform: scale(1.08); }
         .product-card:hover .btn-card { background: var(--accent); color: var(--primary-dark); border-color: var(--accent); box-shadow: 0 4px 12px rgba(202, 138, 4, 0.2); }
 
         /* --- ENGAGEMENTS --- */
@@ -289,20 +232,20 @@
         .features-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--accent); }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 45px; max-width: 1250px; margin: 0 auto; }
         .feature-item { background: rgba(255,255,255,0.02); padding: 3rem 2.5rem; border-radius: 4px; border-left: 4px solid var(--accent); transition: var(--transition); }
-        .feature-item:hover { background: rgba(255,255,255,0.04); transform: translateX(5px); }
         .feature-svg { width: 44px; height: 44px; color: var(--accent); margin-bottom: 22px; }
         .feature-item h3 { font-size: 1.35rem; margin-bottom: 12px; color: var(--white); font-weight: 600; letter-spacing: -0.2px; }
         .feature-item p { color: #abb1bb; font-size: 0.98rem; line-height: 1.6; }
+        .feature-item:hover { background: rgba(255,255,255,0.04); transform: translateX(5px); }
 
         /* --- AVIS CLIENTS --- */
         .reviews-section { background-color: var(--bg-cream); padding: 1rem 0 7rem; border-bottom: 1px solid rgba(0,0,0,0.02); }
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; padding: 0 5%; max-width: 1250px; margin: 0 auto; }
         .review-card { background: var(--white); padding: 3rem 2.2rem; border-radius: 4px; box-shadow: var(--shadow-sm); position: relative; transition: var(--transition); border: 1px solid rgba(0,0,0,0.02); }
-        .review-card:hover { box-shadow: var(--shadow-md); }
         .stars { color: var(--accent); margin-bottom: 18px; font-size: 1.15rem; letter-spacing: 2px; }
         .review-text { font-size: 1rem; color: #4b5563; font-style: italic; margin-bottom: 24px; line-height: 1.6; }
         .review-author { font-size: 1rem; font-weight: 600; color: var(--primary); }
         .review-author span { font-weight: 400; color: #71717a; font-size: 0.85rem; display: block; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .review-card:hover { box-shadow: var(--shadow-md); }
 
         /* --- FAQ --- */
         .faq-section { background-color: var(--white); padding-bottom: 7rem; }
@@ -310,9 +253,9 @@
         .faq-item { background: var(--bg-light); margin-bottom: 18px; border-radius: 4px; overflow: hidden; border: 1px solid rgba(0,0,0,0.02); transition: var(--transition); }
         .faq-question { padding: 1.4rem 1.6rem; font-weight: 600; font-size: 1.05rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--primary); }
         .faq-answer { padding: 0 1.6rem; max-height: 0; overflow: hidden; transition: var(--transition); color: #4b5563; font-size: 0.98rem; line-height: 1.6; }
+        .faq-icon { font-size: 0.8rem; color: var(--accent); transition: transform 0.3s ease; }
         .faq-item.active { background: var(--bg-cream); border-color: rgba(202, 138, 4, 0.2); }
         .faq-item.active .faq-answer { padding-bottom: 1.5rem; max-height: 250px; }
-        .faq-icon { font-size: 0.8rem; color: var(--accent); transition: transform 0.3s ease; }
         .faq-item.active .faq-icon { transform: rotate(180deg); }
 
         /* --- DEVIS & CONTACT --- */
@@ -337,40 +280,22 @@
         .wa-float { position: fixed; bottom: 35px; right: 35px; background: #25d366; color: white; width: 62px; height: 62px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 34px; box-shadow: 0 10px 35px rgba(37, 211, 102, 0.35); z-index: 2000; transition: var(--transition); }
         .wa-float:hover { transform: scale(1.1) rotate(8deg); background: #20ba5a; }
 
-        /* --- MEDIA QUERIES (CHANGEMENTS INTERNES DESSEIN MOBILE) --- */
+        /* --- MEDIA QUERIES --- */
         @media (max-width: 950px) {
             .about-container { flex-direction: column; gap: 45px; }
             .about-img-box img { height: 360px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+            .about-img-box:hover img { transform: none; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
             .hero h1 { font-size: 2.6rem; }
             .contact-box { padding: 2.5rem 1.8rem; }
         }
         @media (max-width: 768px) {
-            header { 
-                flex-direction: column; 
-                gap: 15px; 
-                padding: 0; /* On gère le padding directement pour le fond coloré */
-                top: 33px;
-            }
-            .logo {
-                width: 100%;
-                background-color: var(--bg-cream); /* Le fond d'autre couleur derrière le logo */
-                padding: 12px 0;
-                border-bottom: 1px solid rgba(18, 53, 20, 0.05);
-            }
-            .logo-img {
-                height: 50px; /* Légèrement plus compact sur mobile pour l'équilibre */
-            }
-            .menu-toggle { 
-                display: flex; 
-                position: absolute;
-                top: 25px;
-                right: 25px;
-            }
+            .menu-toggle { display: flex; }
             nav { display: block; position: fixed; top: 0; right: -100%; width: 80%; height: 100vh; background: var(--white); padding: 110px 40px; transition: var(--transition); box-shadow: -15px 0 50px rgba(0,0,0,0.15); z-index: 1000; }
             nav.active { right: 0; }
             nav ul { flex-direction: column; gap: 32px; }
             .section-header h2 { font-size: 2rem; }
             .section-header { margin: 5rem auto 3.5rem; }
+            header { padding: 1rem 5%; }
         }
     </style>
 </head>
@@ -428,7 +353,7 @@
 <body>
 
     <div class="top-bar">
-        ✨ Acheter et profitez de la livraison rapide sur votre chantier !
+        ✨ Demandez votre proformat aujourd'hui et profitez de la livraison rapide sur chantier !
     </div>
 
     <header>
@@ -480,7 +405,7 @@
         </div>
         <div class="about-container">
             <div class="about-img-box">
-                <img src="la reflexion 727 petit-goave Haiti, tigwav lareflexion.jpeg" alt=" La reflexion727 Matériaux de construction à Petit-Goâve">
+                <img src="la reflexion 727 Petit-Goave Haiti.jpg" alt="Infrastructure robuste du dépôt Lareflexion727 à Petit-Goâve">
             </div>
             <div class="about-text-box">
                 <h3>Une chaîne d'approvisionnement robuste</h3>
@@ -523,37 +448,37 @@
 
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-image-container"><img src="ciment cina varreux.png" alt="Sacs de ciment Varreux et Cina La reflexion727 Matériaux de construction à Petit-Goâve"></div>
+                <div class="product-image-container"><img src="ciment cina varreux.png" alt="Sacs de ciment Varreux et Cina"></div>
                 <h3>Ciment Haute Résistance</h3>
                 <p class="product-desc">Marques Varreux, Cina et Colosse. Idéal pour couler des dalles solides et fabriquer des blocs stables.</p>
                 <a href="https://wa.me/50937778050?text=Je%20veux%20le%20prix%20du%20ciment" class="btn-card">Prix du jour</a>
             </div>
             <div class="product-card">
-                <div class="product-image-container"><img src="fer.png" alt="Fer de construction La reflexion727 Matériaux de construction à Petit-Goâve,Haïti"></div>
+                <div class="product-image-container"><img src="fer.png" alt="Fer de construction"></div>
                 <h3>Fer de Structure</h3>
                 <p class="product-desc">Barres d'acier toutes dimensions (1/2, 3/8, 1/4, 5/8). Haute adhérence pour chaînages et fondations antisismiques.</p>
                 <a href="https://wa.me/50937778050?text=Je%20veux%20le%20prix%20du%20fer" class="btn-card">Prix du jour</a>
             </div>
             <div class="product-card">
-                <div class="product-image-container"><img src="tolesordinaire.png" alt="Tôles galvanisées ordinaires La reflexion727 Matériaux de construction à Petit-Goâve,Haïti"></div>
+                <div class="product-image-container"><img src="tolesordinaire.png" alt="Tôles galvanisées ordinaires"></div>
                 <h3>Tôles Galvanisées</h3>
                 <p class="product-desc">Tôles ordinaires hautement traitées contre la rouille pour une protection durable au meilleur tarif.</p>
                 <a href="https://wa.me/50937778050?text=Je%20veux%20le%20prix%20des%20toles%20ordinaires" class="btn-card">Prix du jour</a>
             </div>
             <div class="product-card">
-                <div class="product-image-container"><img src="toles.png" alt="Tôles Aluzinc colorées La reflexion727 Matériaux de construction à Petit-Goâve,Haïti"></div>
+                <div class="product-image-container"><img src="toles.png" alt="Tôles Aluzinc colorées"></div>
                 <h3>Tôles Aluzinc Premium</h3>
                 <p class="product-desc">Tôles de couleur (Rouge et Bleu) offrant une excellente isolation thermique et une esthétique moderne pour votre toiture.</p>
                 <a href="https://wa.me/50937778050?text=Je%20veux%20le%20prix%20des%20toles%20Aluzinc" class="btn-card">Prix du jour</a>
             </div>
             <div class="product-card">
-                <div class="product-image-container"><img src="plywood.jpg" alt="Feuilles de plywood La reflexion727 Matériaux de construction à Petit-Goâve,Haïti"></div>
+                <div class="product-image-container"><img src="plywood.jpg" alt="Feuilles de plywood"></div>
                 <h3>Plywood de Coffrage</h3>
                 <p class="product-desc">Feuilles de plywood robustes et lisses (1/4, 1/2, 3/4) pour coffrages de dalles et travaux de menuiserie.</p>
                 <a href="https://wa.me/50937778050?text=Je%20veux%20le%20prix%20du%20plywood" class="btn-card">Prix du jour</a>
             </div>
             <div class="product-card">
-                <div class="product-image-container"><img src="bois.png" alt="Bois de charpente La reflexion727 Matériaux de construction à Petit-Goâve,Haïti"></div>
+                <div class="product-image-container"><img src="bois.png" alt="Bois de charpente"></div>
                 <h3>Lattes & Bois de Structure</h3>
                 <p class="product-desc">Lattes de bois droites et sèches, sélectionnées spécifiquement pour la charpente et la pose sécurisée de vos toitures.</p>
                 <a href="https://wa.me/50937778050?text=Je%20veux%20le%20prix%20du%20bois" class="btn-card">Prix du jour</a>
@@ -595,7 +520,7 @@
             <div class="review-card">
                 <div class="stars">★★★★★</div>
                 <p class="review-text">"Les prix des fers et des tôles Aluzinc sont très transparents, et l'équipe répond rapidement sur WhatsApp. Très pro pour Haïti."</p>
-                <p class="review-author">Marlène D. <span>Cliente</span></p>
+                <p class="review-author">Marlène D. <span>Maître d'Ouvrage privé</span></p>
             </div>
             <div class="review-card">
                 <div class="stars">★★★★★</div>
