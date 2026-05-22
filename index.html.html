@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaRéflexion | Matériaux de Construction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --primary: #fbc02d; /* Jaune */
+            --secondary: #2e7d32; /* Vert */
+            --accent: #d32f2f; /* Rouge */
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+       .logo {
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+/* Nouveau style pour contrôler la taille de ton logo */
+.logo-img {
+    height: 50px; /* Aligne la hauteur sur celle de ton menu */
+    width: auto;  /* Garde les proportions de ton logo sans le déformer */
+    display: block;
+}
+        /* Couleur Verte pour LaRéflexion727 */
+        .vert-logo { color: var(--secondary); }
+
+        /* Couleur Jaune pour M.C */
+        .jaune-logo { color: var(--primary); }
+
+        nav ul { display: flex; gap: 20px; }
+        nav ul a:hover { color: var(--secondary); font-weight: 600; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url(images/Larefelexion.jpg.jpeg);
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; border-left: 5px solid var(--primary); padding-left: 15px; }
+        .hero p { font-size: 1.1rem; margin-bottom: 2rem; max-width: 600px; }
+
+        .btn-main {
+            background: var(--primary);
+            color: var(--dark);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-main:hover { background: var(--secondary); color: var(--white); transform: scale(1.05); }
+
+        /* --- SECTION TITLES --- */
+        .section-title {
+            text-align: center;
+            margin: 4rem 0 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: var(--accent);
+            display: block;
+            margin: 10px auto;
+        }
+
+        /* --- PRODUITS --- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 5%;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #eee;
+            border-bottom: 4px solid var(--secondary); /* Bordure verte en bas */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* --- NOUVEAU STYLE POUR LES IMAGES --- */
+        .product-image-container {
+            width: 100%;
+            height: 200px; /* Hauteur fixe pour l'image */
+            overflow: hidden; /* Coupe ce qui dépasse */
+            background-color: var(--light); /* Fond gris si l'image ne charge pas */
+        }
+
+        .product-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* L'image remplit la zone sans se déformer */
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image-container img {
+            transform: scale(1.1); /* Petit zoom au survol */
+        }
+
+        .product-card h3 { 
+            padding: 1rem 1rem 0.5rem; 
+            font-size: 1.2rem; 
+            color: var(--dark);
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: #666;
+            padding: 0 1rem 1.5rem;
+            flex-grow: 1; /* Pousse le contenu vers le bas */
+        }
+
+        /* --- WHY US --- */
+        .feature-svg {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Petit effet sympa : l'icône bouge légèrement quand le client passe sa souris dessus */
+.feature-item:hover .feature-svg {
+    transform: scale(1.1);
+}
+        .features {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 4rem 5%;
+            margin-top: 4rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 30px;
+        }
+
+        .feature-item { text-align: center; flex: 1; min-width: 200px; }
+        .feature-item h3 { color: var(--primary); margin-bottom: 10px; }
+
+        /* --- CONTACT --- */
+        .contact {
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .contact-box {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 15px;
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #ddd;
+        }
+
+        .whatsapp-link {
+            display: inline-block;
+            margin-top: 20px;
+            background: #25d366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .whatsapp-link:hover { background-color: #128C7E; transform: scale(1.05); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* --- FLOATING WHATSAPP --- */
+        .wa-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 2px 5px 15px rgba(0,0,0,0.3);
+            z-index: 2000;
+            transition: 0.3s;
+        }
+        .wa-float:hover { transform: rotate(360deg) scale(1.1); }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            nav { display: none; } 
+            .hero h1 { font-size: 1.8rem; }
+            .products-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        }
+    </style>
+</head>
+
+<script>
+    function sendWhatsApp() {
+        const phoneOwner = "50937778050";
+        
+        // Infos client
+        const clientName = document.getElementById('client_name').value;
+        const clientPhone = document.getElementById('client_phone').value;
+
+        // Ciment
+        const typeCiment = document.getElementById('type_ciment').value;
+        const qtyCiment = document.getElementById('qty_ciment').value || 0;
+        
+        // Fer
+        const dimFer = document.getElementById('dim_fer').value;
+        const qtyFer = document.getElementById('qty_fer').value || 0;
+
+        // Tôles
+        const typeToles = document.getElementById('type_toles').value;
+        const qtyToles = document.getElementById('qty_toles').value || 0;
+
+        // Plywood
+        const dimPlywood = document.getElementById('dim_plywood').value;
+        const qtyPlywood = document.getElementById('qty_plywood').value || 0;
+
+        // Vérification des champs obligatoires
+        if (!clientName || !clientPhone) {
+            alert("Veuillez entrer votre nom et votre numéro de téléphone.");
+            return;
+        }
+
+        if (qtyCiment == 0 && qtyFer == 0 && qtyToles == 0 && qtyPlywood == 0) {
+            alert("Veuillez entrer une quantité pour au moins un produit.");
+            return;
+        }
+
+        // Construction du message professionnel
+        let message = "NOUVELLE DEMANDE DE DEVIS%0A";
+        message += "--------------------------%0A";
+        message += "👤 Client : " + clientName + "%0A";
+        message += "📞 Tel : " + clientPhone + "%0A%0A";
+        message += "COMMANDE :%0A";
+        
+        if (qtyCiment > 0) message += "- " + qtyCiment + " sac(s) de Ciment (" + typeCiment + ")%0A";
+        if (qtyFer > 0) message += "- " + qtyFer + " barre(s) de Fer (" + dimFer + ")%0A";
+        if (qtyToles > 0) message += "- " + qtyToles + " feuille(s) de Tôles (" + typeToles + ")%0A";
+        if (qtyPlywood > 0) message += "- " + qtyPlywood + " feuille(s) de Plywood (" + dimPlywood + ")%0A";
+        
+        message += "%0AMarché : Petit-Goâve. Merci de m'envoyer le prix total.";
+
+        const url = "https://wa.me/" + phoneOwner + "?text=" + message;
+        window.open(url, '_blank').focus();
+    }
+</script>
+
+<body>
+
+    <header>
+        <div class="logo">
+    <a href="#">
+        <img src="images/logo_la_Reflexion-removebg-preview.png" alt="Logo LaRéflexion727 M.C" class="logo-img">
+    </a>
+</div>
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#produits">Produits</a></li>
+                <li><a href="#a-propos">Pourquoi nous</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Vos matériaux de construction de qualité au meilleur prix</h1>
+        <p>Vente de ciment, fer, tôles et finitions à Petit-Goâve. Nous construisons ensemble votre avenir.</p>
+        <a href="https://wa.me/50937778050" class="btn-main">Commander maintenant</a>
+    </section>
+
+    <section id="produits">
+        <h2 class="section-title">Nos Matériaux Disponibles</h2>
+        <p style="text-align: center; color: var(--accent); font-weight: bold; margin-bottom: 30px;">
+            ⚠️ Prix variables selon le marché — Contactez-nous pour la cotation du jour
+        </p>
+
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/Ciment Cina varreux.jpg.png" alt="Sacs de ciment stockés à LaRéflexion727 M.C">
+                </div>
+                <h3>Ciment </h3>
+                <p class="product-desc">Sac de 42.5kg et 50kg. Haute résistance pour tous vos travaux.</p>
+                <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20du%20ciment%20aujourd'hui." style="background-color: var(--secondary); color: white; padding: 10px; font-weight: bold; margin: 0 1rem 1rem;">Prix du jour</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/Fer.jpg.png" alt="Barres de fer de construction">
+                </div>
+                <h3>Fer de Construction</h3>
+                <p class="product-desc">Toutes dimensions disponibles : 1/2, 3/8, 1/4, 5/8. Qualité garantie.</p>
+                <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20du%20fer%20aujourd'hui." style="background-color: var(--secondary); color: white; padding: 10px; font-weight: bold; margin: 0 1rem 1rem;">Prix du jour</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/tolesordinaire.jpg.png" alt="Sacs de ciment stockés à LaRéflexion727 M.C">
+                </div>
+                <h3>Tôles Ordinaires </h3>
+                <p class="product-desc">Tôles galvanisées de haute qualité, résistantes à la corrosion et aux intempéries</p>
+                <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20du%20ciment%20aujourd'hui." style="background-color: var(--secondary); color: white; padding: 10px; font-weight: bold; margin: 0 1rem 1rem;">Prix du jour</a>
+            </div>
+
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/toles.jpg.png" alt="Tôles galvanisées et Aluzinc">
+                </div>
+                <h3>Tôles</h3>
+                <p class="product-desc"> Différentes longueurs pour votre toiture.</p>
+                <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20des%20tôles." style="background-color: var(--secondary); color: white; padding: 10px; font-weight: bold; margin: 0 1rem 1rem;">Prix du jour</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/plywood.jpg" alt="Sacs de ciment stockés à LaRéflexion727 M.C">
+                </div>
+                <h3>Plywood </h3>
+                <p class="product-desc">Plywood de haute densité, robuste et flexible.Disponible en plusieurs épaisseurs pour s'adapter à tous vos projets de construction</p>
+                <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20du%20ciment%20aujourd'hui." style="background-color: var(--secondary); color: white; padding: 10px; font-weight: bold; margin: 0 1rem 1rem;">Prix du jour</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="images/bois.jpg.png" alt="Lattes">
+                </div>
+                <h3>Lattes</h3>
+                <p class="product-desc"> Différentes longueurs pour votre construction.</p>
+                <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20des%20tôles." style="background-color: var(--secondary); color: white; padding: 10px; font-weight: bold; margin: 0 1rem 1rem;">Prix du jour</a>
+            </div>
+            </div>
+    </section>
+
+    <section class="features" id="a-propos">
+    <div class="feature-item">
+        <!-- Icône de Livraison : Camion en mouvement -->
+        <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="#fbc02d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            <line x1="3" y1="6" x2="9" y2="6"></line>
+            <line x1="3" y1="10" x2="12" y2="10"></line>
+        </svg>
+        <h3>Livraison Rapide</h3>
+        <p>Nous livrons sécuritairement vos matériaux sur votre chantier à Petit-Goâve et environs.</p>
+    </div>
+    
+    <div class="feature-item">
+        <!-- Icône de Qualité : Écusson/Badge de certification avec un check -->
+        <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="#fbc02d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <polyline points="9 11 11 13 15 9"></polyline>
+        </svg>
+        <h3>Qualité Supérieure</h3>
+        <p>Des produits certifiés et robustes pour une construction durable en Haïti.</p>
+    </div>
+    
+    <div class="feature-item">
+        <!-- Icône de Disponibilité : Entrepôt/Bâtiment de stockage solide -->
+        <svg class="feature-svg" viewBox="0 0 24 24" fill="none" stroke="#fbc02d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18"></path>
+            <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1H3"></path>
+            <path d="M5 21V10.85"></path>
+            <path d="M19 21V10.85"></path>
+            <path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"></path>
+            <path d="M21 7L12 3 3 7"></path>
+        </svg>
+        <h3>Disponibilité</h3>
+        <p>Un stock constant pour éviter les retards sur vos chantiers.</p>
+    </div>
+</section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">Passez Votre Commande</h2>
+        <div class="contact-box">
+            <p>📍 <strong>Notre Dépôt :</strong> Rte Nationale #2, Petit-Goâve, Haïti</p>
+            <p>📞 <strong>Téléphone / WhatsApp :</strong> +(509) 3777-8050</p>
+            <p style="margin-top: 10px; color: var(--secondary); font-weight: bold;">🚚 Livraison Disponible !</p>
+            <a href="https://wa.me/50937778050" class="whatsapp-link">Discuter sur WhatsApp</a>
+        </div>
+    </section>
+
+    <section id="devis" style="padding: 4rem 5%; background: var(--light);">
+        <h2 class="section-title">Proformat Rapide</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">Remplissez vos informations pour recevoir une cotation personnalisée.</p>
+        
+        <div class="contact-box" style="max-width: 600px; margin: auto; text-align: left;">
+            <form id="quoteForm">
+                
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div style="flex: 1;">
+                        <label>👤 Nom Complet du client :</label>
+                        <input type="text" id="client_name" placeholder="Votre nom" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label>📞 Téléphone :</label>
+                        <input type="tel" id="client_phone" placeholder="Numéro" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;" required>
+                    </div>
+                </div>
+
+                <hr style="margin-bottom: 20px; border: 0; border-top: 1px solid #eee;">
+
+                <div style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+                    <label>🏗️ Ciment :</label>
+                    <div style="display: flex; gap: 10px; margin-top: 5px;">
+                        <select id="type_ciment" style="flex: 2; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                            <option value="Cimtrak">varreux</option>
+                            <option value="Antillais">Cina</option>
+                            <option value="Colosse">Colosse</option>
+                        </select>
+                        <input type="number" id="qty_ciment" placeholder="Qté" style="flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+                    <label>⛓️ Fer de construction :</label>
+                    <div style="display: flex; gap: 10px; margin-top: 5px;">
+                        <select id="dim_fer" style="flex: 2; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                            <option value="1/2">Fer 1/2</option>
+                            <option value="3/8">Fer 3/8</option>
+                            <option value="1/4">Fer 1/4</option>
+                            <option value="5/8">Fer 5/8</option>
+                        </select>
+                        <input type="number" id="qty_fer" placeholder="Qté" style="flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 10px;">
+                    <label>🏠 Tôles :</label>
+                    <div style="display: flex; gap: 10px; margin-top: 5px;">
+                        <select id="type_toles" style="flex: 2; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                            <option value="Galvanisée Ordinaire">Ordinaire</option>
+                            <option value="Aluzinc Rouge">Rouge</option>
+                            <option value="Aluzinc Bleue">Bleue</option>
+                        </select>
+                        <input type="number" id="qty_toles" placeholder="Qté" style="flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label>🧱 Plywood :</label>
+                    <div style="display: flex; gap: 10px; margin-top: 5px;">
+                        <select id="dim_plywood" style="flex: 2; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                            <option value="1/2">Plywood 1/2</option>
+                            <option value="3/4">Plywood 3/4</option>
+                            <option value="1/4">Plywood 1/4</option>
+                        </select>
+                        <input type="number" id="qty_plywood" placeholder="Qté" style="flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                    </div>
+                </div>
+                
+                <button type="button" onclick="sendWhatsApp()" class="btn-main" style="width: 100%; border: none; cursor: pointer; margin-top: 10px;">
+                    Envoyer ma demande 
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 La Réflexion727 M.C Tous droits réservés.</p>
+        <p style="font-size: 12px; color: #aaa; margin-top: 5px;">Petit-Goâve, Haïti</p>
+    </footer>
+
+    <a href="https://wa.me/50937778050" class="wa-float" title="Contactez-nous">
+        <svg width="35" height="35" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.448 0 9.886-4.438 9.889-9.886.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.935-.98zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+</body>
+</html>
