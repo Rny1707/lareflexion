@@ -259,4 +259,567 @@
         
         .product-card h3 { 
             padding: 1.5rem 1.5rem 0.5rem; 
-            font-size: 1.2
+            font-size: 1.25rem; 
+            font-weight: 600;
+            color: var(--dark); 
+        }
+        
+        .product-desc { 
+            font-size: 0.9rem; 
+            color: #666; 
+            padding: 0 1.5rem 2rem; 
+            flex-grow: 1; 
+        }
+
+        .btn-card {
+            display: block;
+            text-align: center;
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 10px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin: 0 1.5rem 1.5rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .btn-card {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* --- CARACTÉRISTIQUES (WHY US) --- */
+        .features {
+            background: var(--bg-light);
+            padding: 5rem 5%;
+            margin-top: 6rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 40px;
+        }
+
+        .feature-item { 
+            text-align: center; 
+            flex: 1; 
+            min-width: 260px; 
+            max-width: 350px;
+        }
+        
+        .feature-svg { width: 45px; height: 45px; margin-bottom: 20px; color: var(--primary); }
+        .feature-item h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 12px; color: var(--dark); }
+        .feature-item p { font-size: 0.9rem; color: #666; }
+
+        /* --- SECTION AVIS CLIENTS (NEW) --- */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .stars { color: var(--gold); margin-bottom: 10px; font-size: 1.1rem; }
+        .review-text { font-size: 0.95rem; color: #444; font-style: italic; margin-bottom: 15px; }
+        .review-author { font-size: 0.9rem; font-weight: 600; color: var(--dark); }
+        .review-author span { font-weight: 300; color: #888; font-size: 0.8rem; display: block; }
+
+        /* --- FAQ SECTION (NEW) --- */
+        .faq-container {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .faq-item {
+            background: var(--bg-light);
+            margin-bottom: 15px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.2rem;
+            max-height: 200px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* --- SECTIONS CONTACT & FORMULAIRE DEVIS --- */
+        .contact { padding: 2rem 5% 4rem; text-align: center; }
+        .contact-box {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            display: inline-block;
+            width: 100%;
+            max-width: 650px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid #eee;
+        }
+
+        .contact-box p { margin-bottom: 10px; font-size: 1.05rem; }
+
+        .whatsapp-link {
+            display: inline-block;
+            margin-top: 25px;
+            background: #25d366;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .whatsapp-link:hover { background-color: #128C7E; transform: translateY(-2px); }
+
+        /* Formulaire */
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 6px; font-size: 0.9rem; font-weight: 500; }
+        .form-control {
+            width: 100%; 
+            padding: 12px; 
+            border-radius: 4px; 
+            border: 1px solid #ddd;
+            font-size: 0.95rem;
+            background: var(--bg-light);
+            transition: var(--transition);
+        }
+        .form-control:focus { outline: none; border-color: var(--primary); background: var(--white); }
+
+        /* --- FOOTER --- */
+        footer { background: var(--dark); color: #888; text-align: center; padding: 3rem 2rem; margin-top: 6rem; font-size: 0.9rem; }
+        footer p { margin-bottom: 5px; }
+
+        /* --- FLOATING WHATSAPP --- */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 2000;
+            transition: var(--transition);
+        }
+        .wa-float:hover { transform: scale(1.1); }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 900px) {
+            .expertise-container { flex-direction: column; gap: 30px; padding-bottom: 2rem; }
+            .expertise-img-box img { height: 300px; }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            nav {
+                display: block;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--white);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+                padding: 100px 40px;
+                transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+                z-index: 1000;
+            }
+            nav.active { right: 0; }
+            nav ul { flex-direction: column; gap: 35px; }
+            nav ul a { font-size: 1.1rem; }
+            
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .section-header h2 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+
+<script>
+    function sendWhatsApp() {
+        const phoneOwner = "50937778050";
+        const clientName = document.getElementById('client_name').value;
+        const clientPhone = document.getElementById('client_phone').value;
+        const typeCiment = document.getElementById('type_ciment').value;
+        const qtyCiment = document.getElementById('qty_ciment').value || 0;
+        const dimFer = document.getElementById('dim_fer').value;
+        const qtyFer = document.getElementById('qty_fer').value || 0;
+        const typeToles = document.getElementById('type_toles').value;
+        const qtyToles = document.getElementById('qty_toles').value || 0;
+        const dimPlywood = document.getElementById('dim_plywood').value;
+        const qtyPlywood = document.getElementById('qty_plywood').value || 0;
+
+        if (!clientName || !clientPhone) {
+            alert("Veuillez entrer votre nom et votre numéro de téléphone.");
+            return;
+        }
+
+        if (qtyCiment == 0 && qtyFer == 0 && qtyToles == 0 && qtyPlywood == 0) {
+            alert("Veuillez entrer une quantité pour au moins un produit.");
+            return;
+        }
+
+        let message = "NOUVELLE DEMANDE DE DEVIS%0A";
+        message += "--------------------------%0A";
+        message += "👤 Client : " + clientName + "%0A";
+        message += "📞 Tel : " + clientPhone + "%0A%0A";
+        message += "COMMANDE :%0A";
+        
+        if (qtyCiment > 0) message += "- " + qtyCiment + " sac(s) de Ciment (" + typeCiment + ")%0A";
+        if (qtyFer > 0) message += "- " + qtyFer + " barre(s) de Fer (" + dimFer + ")%0A";
+        if (qtyToles > 0) message += "- " + qtyToles + " feuille(s) de Tôles (" + typeToles + ")%0A";
+        if (qtyPlywood > 0) message += "- " + qtyPlywood + " feuille(s) de Plywood (" + dimPlywood + ")%0A";
+        
+        message += "%0AMarché : Petit-Goâve. Merci de m'envoyer le prix total.";
+
+        const url = "https://wa.me/" + phoneOwner + "?text=" + message;
+        window.open(url, '_blank').focus();
+    }
+
+    function toggleMenu() {
+        document.getElementById('navbar').classList.toggle('active');
+        document.getElementById('menuBtn').classList.toggle('active');
+    }
+
+    function closeMenu() {
+        document.getElementById('navbar').classList.remove('active');
+        document.getElementById('menuBtn').classList.remove('active');
+    }
+
+    function toggleFaq(element) {
+        element.parentElement.classList.toggle('active');
+    }
+</script>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="#">
+                <img src="logo_la_Reflexion-removebg-preview.png" alt="Logo Officiel LaRéflexion727 M.C" class="logo-img">
+            </a>
+        </div>
+
+        <button class="menu-toggle" id="menuBtn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="navbar">
+            <ul>
+                <li><a href="#" onclick="closeMenu()">Accueil</a></li>
+                <li><a href="#produits" onclick="closeMenu()">Matériaux</a></li>
+                <li><a href="#expertise" onclick="closeMenu()">Notre Dépôt</a></li>
+                <li><a href="#avis" onclick="closeMenu()">Avis</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>LaRéflexion727 M.C | Matériaux de Construction à Petit-Goâve, Haïti</h1>
+        <p>L'excellence pour vos chantiers. Approvisionnement premium en ciment de haute résistance, fer structurel, tôles durables et bois de coffrage.</p>
+        <a href="#devis" class="btn-main">Demander un devis en ligne</a>
+    </section>
+
+    <section id="expertise" style="background-color: var(--white); padding-top: 2rem;">
+        <div class="section-header">
+            <h2>Des Fondations Solides pour Vos Projets</h2>
+        </div>
+        <div class="expertise-container">
+            <div class="expertise-img-box">
+                <img src="Larefelexion.jpg.jpeg" alt="Livraison de matériaux de construction robustes par LaRéflexion727">
+            </div>
+            <div class="expertise-text-box">
+                <h3>Une référence à Petit-Goâve</h3>
+                <p>À <strong>LaRéflexion727 M.C</strong>, nous savons que la sécurité de vos bâtiments dépend de la qualité des matériaux utilisés. C'est pourquoi nous sélectionnons rigoureusement nos produits auprès des meilleurs fournisseurs.</p>
+                <p>Que vous soyez un ingénieur gérant un grand chantier ou un particulier construisant sa maison de rêve en Haïti, nous mettons un point d'honneur à vous fournir un stock constant et un service de livraison irréprochable directement sur site.</p>
+                <a href="#contact" class="btn-main" style="padding: 10px 24px; font-size: 0.85rem;">Découvrir nos services</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="produits" style="background-color: var(--bg-light); padding-bottom: 6rem; padding-top: 1rem;">
+        <div class="section-header">
+            <h2>Notre Catalogue de Matériaux</h2>
+            <p style="text-align: center; color: var(--accent); font-weight: 500; font-size: 0.9rem; margin-top: 10px;">
+                ⚠️ Prix indexés sur le cours du marché — Contactez-nous pour la cotation du jour
+            </p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="ciment cina varreux.png" alt="Sacs de ciment Varreux et Cina haute résistance à Petit-Goâve">
+                </div>
+                <h3>Ciment de Haute Résistance</h3>
+                <p class="product-desc">Sacs de ciment Varreux, Cina et Colosse (42.5kg et 50kg). Parfait pour des dalles, briques et fondations durables.</p>
+                <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20du%20ciment%20aujourd'hui." class="btn-card">Consulter le prix</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="fer.png" alt="Barres de fer de construction toutes dimensions 1/2, 3/8, 1/4 à Petit-Goâve">
+                </div>
+                <h3>Fer de Construction</h3>
+                <p class="product-desc">Fers structurels haute adhérence pour armatures solides : 1/2, 3/8, 1/4, 5/8. Idéal pour structures antisismiques.</p>
+                <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20du%20fer%20aujourd'hui." class="btn-card">Consulter le prix</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="tolesordinaire.png" alt="Vente de tôles galvanisées ordinaires anticorrosion à Petit-Goâve">
+                </div>
+                <h3>Tôles Galvanisées</h3>
+                <p class="product-desc">Tôles de protection classiques traitées contre l'oxydation, garantissant une étanchéité optimale à un coût maîtrisé.</p>
+                <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20des%20tôles%20ordinaires." class="btn-card">Consulter le prix</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="toles.png" alt="Tôles de couleur Aluzinc rouge et bleue pour toiture à Petit-Goâve">
+                </div>
+                <h3>Tôles Aluzinc Premium</h3>
+                <p class="product-desc">Revêtement esthétique haut de gamme. Disponibles en rouge et bleu pour une résistance thermique et climatique supérieure.</p>
+                <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20des%20tôles%20Aluzinc." class="btn-card">Consulter le prix</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="plywood.jpg" alt="Feuilles de plywood haute densité pour coffrage et finitions en Haïti">
+                </div>
+                <h3>Plywood de Structure</h3>
+                <p class="product-desc">Panneaux robustes multi-usages, disponibles en épaisseurs standards (1/4, 1/2, 3/4) pour coffrages précis et finitions.</p>
+                <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20du%20plywood." class="btn-card">Consulter le prix</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <img src="bois.png" alt="Lattes de bois de construction solides et droites pour charpente">
+                </div>
+                <h3>Bois de Charpente & Lattes</h3>
+                <p class="product-desc">Lattes et pièces de bois sélectionnées rectilignes, indispensables pour supporter vos toitures et structures lourdes.</p>
+                <a href="https://wa.me/50937778050?text=Bonjour,%20je%20souhaite%20connaître%20le%20prix%20du%20bois." class="btn-card">Consulter le prix</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="a-propos">
+        <div class="feature-item">
+            <svg class="feature-svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125a1.125 1.125 0 001.125-1.125V11.164a1.125 1.125 0 00-.332-.796l-3.153-3.153a1.125 1.125 0 00-.796-.332H12.75m0 12.75V7.5m0 11.25H16.5m-3.75-11.25H12M3.375 14.25h13.5M2.25 14.25v-1.351a2.25 2.25 0 01.453-1.351L5.132 7.57a2.25 2.25 0 011.806-.92H10.5a1.5 1.5 0 011.5 1.5v4.5"></path></svg>
+            <h3>Logistique Intégrée</h3>
+            <p>Service de livraison direct sur chantier à Petit-Goâve et zones limitrophes pour sécuriser vos approvisionnements.</p>
+        </div>
+        
+        <div class="feature-item">
+            <svg class="feature-svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path></svg>
+            <h3>Matériaux Normés</h3>
+            <p>Nos fers de construction et nos ciments répondent strictement aux exigences de solidité mécanique du secteur.</p>
+        </div>
+        
+        <div class="feature-item">
+            <svg class="feature-svg" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72M6.75 18h3.5a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75h-3.5a.75.75 0 00-.75.75v3.75c0 .414.336.75.75.75z"></path></svg>
+            <h3>Disponibilité des Stocks</h3>
+            <p>Des entrepôts continuellement approvisionnés pour garantir le rythme fluide de vos constructions en cours.</p>
+        </div>
+    </section>
+
+    <section id="avis" style="background-color: var(--white);">
+        <div class="section-header">
+            <h2>Ils nous font confiance</h2>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Excellent service de livraison sur Petit-Goâve pour mon chantier résidentiel. Le ciment Varreux est de première qualité et le staff est ultra pro."</p>
+                <p class="review-author">Ing. Jean-Pierre L. <span>Entrepreneur Général</span></p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"C'est devenu mon dépôt officiel. Les prix des fers et des tôles Aluzinc sont très compétitifs, et surtout, ils ne tombent jamais en rupture de stock."</p>
+                <p class="review-author">Marlène D. <span>Propriétaire de projet</span></p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"La demande de proformat en ligne sur le site me fait gagner un temps précieux. Je reçois les cotations directement sur WhatsApp en quelques heures."</p>
+                <p class="review-author">Samuel B. <span>Maître d'œuvre</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" style="background-color: var(--white); padding-bottom: 2rem;">
+        <div class="section-header">
+            <h2>Questions Fréquentes</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Quelles sont vos zones de livraison ?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Nous livrons principalement dans toute la commune de Petit-Goâve, sur la Route Nationale #2, ainsi que dans les communes avoisinantes sur demande pour les volumes importants.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Quels types de ciment proposez-vous ?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Nous distribuons du ciment de haute qualité adapté aux exigences locales, notamment le ciment Varreux, le ciment Cina, et le ciment Colosse selon les arrivages.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span>Pourquoi les prix ne sont-ils pas fixes sur le site ?</span>
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    Le coût des matériaux de construction (acier, ciment) fluctue régulièrement sur le marché national. Pour vous garantir le meilleur prix juste, nous mettons à jour nos cotations quotidiennement sur WhatsApp.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="devis" style="padding: 4rem 5%; background: var(--bg-light);">
+        <h2 class="section-title" style="text-align:center; margin-bottom: 2rem;">Demande de Proformat en Ligne</h2>
+        
+        <div class="contact-box" style="margin: auto; text-align: left;">
+            <form id="quoteForm">
+                <div style="display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px;" class="form-group">
+                        <label>👤 Nom Complet :</label>
+                        <input type="text" id="client_name" class="form-control" placeholder="Votre nom" required>
+                    </div>
+                    <div style="flex: 1; min-width: 200px;" class="form-group">
+                        <label>📞 Téléphone :</label>
+                        <input type="tel" id="client_phone" class="form-control" placeholder="Ex: +509..." required>
+                    </div>
+                </div>
+
+                <hr style="margin-bottom: 25px; border: 0; border-top: 1px solid #e2e8f0;">
+
+                <div class="form-group" style="border-bottom: 1px solid #edf2f7; padding-bottom: 15px;">
+                    <label>🏗️ Ciment :</label>
+                    <div style="display: flex; gap: 15px; margin-top: 5px;">
+                        <select id="type_ciment" class="form-control" style="flex: 2;">
+                            <option value="Varreux">Varreux</option>
+                            <option value="Cina">Cina</option>
+                            <option value="Colosse">Colosse</option>
+                        </select>
+                        <input type="number" id="qty_ciment" class="form-control" placeholder="Quantité" style="flex: 1;">
+                    </div>
+                </div>
+
+                <div class="form-group" style="border-bottom: 1px solid #edf2f7; padding-bottom: 15px;">
+                    <label>⛓️ Fer de construction :</label>
+                    <div style="display: flex; gap: 15px; margin-top: 5px;">
+                        <select id="dim_fer" class="form-control" style="flex: 2;">
+                            <option value="1/2">Fer 1/2</option>
+                            <option value="3/8">Fer 3/8</option>
+                            <option value="1/4">Fer 1/4</option>
+                            <option value="5/8">Fer 5/8</option>
+                        </select>
+                        <input type="number" id="qty_fer" class="form-control" placeholder="Quantité" style="flex: 1;">
+                    </div>
+                </div>
+
+                <div class="form-group" style="border-bottom: 1px solid #edf2f7; padding-bottom: 15px;">
+                    <label>🏠 Tôles :</label>
+                    <div style="display: flex; gap: 15px; margin-top: 5px;">
+                        <select id="type_toles" class="form-control" style="flex: 2;">
+                            <option value="Galvanisée Ordinaire">Ordinaire</option>
+                            <option value="Aluzinc Rouge">Aluzinc Rouge</option>
+                            <option value="Aluzinc Bleue">Aluzinc Bleue</option>
+                        </select>
+                        <input type="number" id="qty_toles" class="form-control" placeholder="Quantité" style="flex: 1;">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 25px;">
+                    <label>🧱 Plywood :</label>
+                    <div style="display: flex; gap: 15px; margin-top: 5px;">
+                        <select id="dim_plywood" class="form-control" style="flex: 2;">
+                            <option value="1/2">Plywood 1/2</option>
+                            <option value="3/4">Plywood 3/4</option>
+                            <option value="1/4">Plywood 1/4</option>
+                        </select>
+                        <input type="number" id="qty_plywood" class="form-control" placeholder="Quantité" style="flex: 1;">
+                    </div>
+                </div>
+                
+                <button type="button" onclick="sendWhatsApp()" class="btn-main" style="width: 100%; border: none; cursor: pointer; font-weight:600; text-transform:uppercase;">
+                    Générer et envoyer mon devis via WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-box">
+            <h2 style="font-size:1.6rem; margin-bottom: 1.5rem; color: var(--primary);">Contactez Notre Équipe</h2>
+            <p>📍 <strong>Notre Dépôt :</strong> Rte Nationale #2, Petit-Goâve, Haïti</p>
+            <p>📞 <strong>Téléphone / WhatsApp :</strong> +(509) 3777-8050</p>
+            <p style="margin-top: 15px; color: var(--primary); font-weight: 500;">🚚 Logistique & Livraison Disponibles !</p>
+            <a href="https://wa.me/50937778050" class="whatsapp-link">Lancer la discussion WhatsApp</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 LaRéflexion727 M.C. Tous droits réservés.</p>
+        <p style="font-size: 13px; color: #555; margin-top: 5px;">Quincaillerie d'Excellence & Dépôt de Matériaux — Petit-Goâve, Haïti</p>
+    </footer>
+
+    <a href="https://wa.me/50937778050" class="wa-float" title="Contactez LaRéflexion727 M.C sur WhatsApp">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.319 1.592 5.448 0 9.886-4.438 9.889-9.886.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.935-.98zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    </a>
+
+</body>
+</html>
